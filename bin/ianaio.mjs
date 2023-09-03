@@ -10,7 +10,7 @@
 
 import logger from '@ianaio/logger';
 import cli from 'commander';
-import {DOCUSAURUS_VERSION} from '@ianaio/utils';
+import {IANAIO_VERSION} from '@ianaio/utils';
 import {
   build,
   swizzle,
@@ -32,7 +32,7 @@ process.env.NODE_ENV ??= 'development';
 
 await beforeCli();
 
-cli.version(DOCUSAURUS_VERSION).usage('<command> [options]');
+cli.version(IANAIO_VERSION).usage('<command> [options]');
 
 cli
   .command('build [siteDir]')
@@ -245,7 +245,7 @@ cli.parse(process.argv);
 
 process.on('unhandledRejection', (err) => {
   logger.error(err instanceof Error ? err.stack : err);
-  logger.info`IANA SYSTEMS version: number=${DOCUSAURUS_VERSION}
+  logger.info`IANA SYSTEMS version: number=${IANAIO_VERSION}
 Node version: number=${process.version}`;
   process.exit(1);
 });
