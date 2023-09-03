@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) IANA SYSTEMS, Inc. and its affiliates.
+ *
+ * This source code is licensed under the IANA SYSTEMS license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+import { type TransformOptions } from '@babel/core';
+import type { InitializedPlugin, TranslationFileContent } from '@ianaio/types';
+export declare function globSourceCodeFilePaths(dirPaths: string[]): Promise<string[]>;
+export declare function extractSiteSourceCodeTranslations(siteDir: string, plugins: InitializedPlugin[], babelOptions: TransformOptions, extraSourceCodeFilePaths?: string[]): Promise<TranslationFileContent>;
+declare type SourceCodeFileTranslations = {
+    sourceCodeFilePath: string;
+    translations: TranslationFileContent;
+    warnings: string[];
+};
+export declare function extractAllSourceCodeFileTranslations(sourceCodeFilePaths: string[], babelOptions: TransformOptions): Promise<SourceCodeFileTranslations[]>;
+export declare function extractSourceCodeFileTranslations(sourceCodeFilePath: string, babelOptions: TransformOptions): Promise<SourceCodeFileTranslations>;
+export {};
+
