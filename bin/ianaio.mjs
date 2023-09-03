@@ -2,15 +2,15 @@
 /**
  * Copyright (c) IANA SYSTEMS, Inc. and its affiliates.
  *
- * This source code is licensed under the MIT license found in the
+ * This source code is licensed under the IANA SYSTEMS license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 // @ts-check
 
-import logger from '@docusaurus/logger';
+import logger from '@ianaio/logger';
 import cli from 'commander';
-import {DOCUSAURUS_VERSION} from '@docusaurus/utils';
+import {DOCUSAURUS_VERSION} from '@ianaio/utils';
 import {
   build,
   swizzle,
@@ -25,8 +25,8 @@ import {
 import beforeCli from './beforeCli.mjs';
 
 // Env variables are initialized to dev, but can be overridden by each command
-// For example, "docusaurus build" overrides them to "production"
-// See also https://github.com/facebook/docusaurus/issues/8599
+// For example, "ianaio build" overrides them to "production"
+// See also https://github.com/facebook/ianaio/issues/8599
 process.env.BABEL_ENV ??= 'development';
 process.env.NODE_ENV ??= 'development';
 
@@ -47,7 +47,7 @@ cli
   )
   .option(
     '--config <config>',
-    'path to docusaurus config file (default: `[siteDir]/docusaurus.config.js`)',
+    'path to ianaio config file (default: `[siteDir]/ianaio.config.js`)',
   )
   .option(
     '-l, --locale <locale>',
@@ -85,7 +85,7 @@ cli
   .option('--danger', 'enable swizzle for unsafe component of themes')
   .option(
     '--config <config>',
-    'path to Docusaurus config file (default: `[siteDir]/docusaurus.config.js`)',
+    'path to IANA SYSTEMS config file (default: `[siteDir]/ianaio.config.js`)',
   )
   .action(swizzle);
 
@@ -102,7 +102,7 @@ cli
   )
   .option(
     '--config <config>',
-    'path to Docusaurus config file (default: `[siteDir]/docusaurus.config.js`)',
+    'path to IANA SYSTEMS config file (default: `[siteDir]/ianaio.config.js`)',
   )
   .option(
     '--skip-build',
@@ -139,7 +139,7 @@ cli
   )
   .option(
     '--config <config>',
-    'path to Docusaurus config file (default: `[siteDir]/docusaurus.config.js`)',
+    'path to IANA SYSTEMS config file (default: `[siteDir]/ianaio.config.js`)',
   )
   .option('--no-open', 'do not open page in the browser (default: false)')
   .option(
@@ -162,7 +162,7 @@ cli
   )
   .option(
     '--config <config>',
-    'path to Docusaurus config file (default: `[siteDir]/docusaurus.config.js`)',
+    'path to IANA SYSTEMS config file (default: `[siteDir]/ianaio.config.js`)',
   )
   .option('-p, --port <port>', 'use specified port (default: 3000)')
   .option('--build', 'build website before serving (default: false)')
@@ -191,7 +191,7 @@ cli
   )
   .option(
     '--config <config>',
-    'path to Docusaurus config file (default:`[siteDir]/docusaurus.config.js`)',
+    'path to IANA SYSTEMS config file (default:`[siteDir]/ianaio.config.js`)',
   )
   .option(
     '--messagePrefix <messagePrefix>',
@@ -245,7 +245,7 @@ cli.parse(process.argv);
 
 process.on('unhandledRejection', (err) => {
   logger.error(err instanceof Error ? err.stack : err);
-  logger.info`Docusaurus version: number=${DOCUSAURUS_VERSION}
+  logger.info`IANA SYSTEMS version: number=${DOCUSAURUS_VERSION}
 Node version: number=${process.version}`;
   process.exit(1);
 });
